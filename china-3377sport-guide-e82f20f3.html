@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3377体育 · 再次遇见，持续陪伴</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1e1e1e;
+      background-color: #f8f9fb;
+    }
+    a {
+      color: #c44536;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #8c2e1f;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: #12131c;
+      color: #e7e9f0;
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 3px solid #c44536;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #b4b9ce;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* 导航 */
+    .top-nav {
+      background: #1d1f2b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 2rem;
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #2f3140;
+    }
+    .top-nav a {
+      color: #c9ccde;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.3rem 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .top-nav a:hover {
+      color: #f0f1f8;
+      border-bottom-color: #c44536;
+    }
+
+    /* 正文区 */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.4rem 1.8rem 4rem;
+    }
+
+    /* 介绍段 */
+    .intro {
+      font-size: 1.05rem;
+      margin-bottom: 2.8rem;
+      padding: 1.6rem 2rem;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      border-left: 4px solid #c44536;
+    }
+
+    /* 场景卡片 */
+    .scenes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0 2.5rem;
+    }
+    .scene-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.4rem 1.6rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eaeef2;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    }
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #12131c;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.2px;
+    }
+    .scene-card p {
+      color: #3d404f;
+      font-size: 0.98rem;
+      margin-bottom: 0.7rem;
+    }
+    .scene-card a {
+      font-weight: 500;
+    }
+
+    /* 常见说明区 */
+    .faq-note {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 2.2rem;
+      margin: 2.8rem 0 2rem;
+      border: 1px solid #e1e6ed;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+    .faq-note h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #12131c;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #c44536;
+      padding-left: 1rem;
+    }
+    .faq-item {
+      margin-bottom: 1.3rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1d1f2b;
+      margin-bottom: 0.15rem;
+    }
+    .faq-item p {
+      color: #3d404f;
+      margin-left: 0.2rem;
+    }
+
+    /* 收藏提示小标签 */
+    .bookmark-tip {
+      background: #f1e9e6;
+      border-radius: 40px;
+      display: inline-block;
+      padding: 0.5rem 1.6rem;
+      color: #3d2c26;
+      font-size: 0.95rem;
+      font-weight: 450;
+      margin: 0.8rem 0 1.8rem;
+      border: 1px solid #d8cbc6;
+    }
+
+    /* 响应式 */
+    @media (max-width: 780px) {
+      .hero h1 { font-size: 2rem; }
+      .scenes { grid-template-columns: 1fr; gap: 1.5rem; }
+      .intro { padding: 1.2rem 1.2rem; }
+      .faq-note { padding: 1.5rem 1.2rem; }
+      .top-nav { gap: 0.6rem 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 2.6rem 1rem 2.2rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+      .scene-card { padding: 1.4rem 1rem; }
+    }
+
+    /* 辅助 */
+    .muted-link {
+      color: #7a7e93;
+      font-size: 0.9rem;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #dee2ea;
+      margin: 1.8rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>3377体育 · 再次回来，依旧熟悉</h1>
+  <p class="sub">收藏一处角落，持续关注自己喜爱的节奏。无论是日常浏览还是久别重逢，我们希望每次打开都感到自然。</p>
+</header>
+
+<nav class="top-nav">
+  <a href="#">首页</a>
+  <a href="#">赛场动态</a>
+  <a href="#">赛事集锦</a>
+  <a href="#">社区笔记</a>
+  <a href="#">关于我们</a>
+</nav>
+
+<div class="container">
+
+  <!-- 介绍 + 自然链接 -->
+  <div class="intro">
+    <p>如果你曾到过<a href="https://china-3377sport.com">3377体育</a>，大概会记得那种干净、不拥挤的阅读体验。这里没有铺天盖地的弹窗，也没有重复的诱导信息——我们更希望内容本身成为你停留的理由。无论是再次访问，还是首次相遇，你都可以在熟悉的页面结构里找到自己关心的部分。</p>
+    <p style="margin-top: 1rem;">从 PC 到手机端，页面适配一直是我们持续调整的细节。很多朋友通过收藏夹、浏览器书签或者直接输入域名回来看看，这种“直接到达”的方式也是我们最珍视的连接。</p>
+  </div>
+
+  <!-- 收藏提示（轻量） -->
+  <div class="bookmark-tip">
+    ⭐ 如果你觉得这里值得常来，不妨添加到浏览器书签。
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes">
+    <div class="scene-card">
+      <h3>🏟️ 赛后重温</h3>
+      <p>错过直播？或者想再次回味关键时刻。在<a href="https://china-3377sport.com">3377体育</a>你可以找到赛事的高光整理与完整回放入口，不用在多个平台切换。</p>
+      <p class="muted-link">—— 按日期、联赛浏览</p>
+    </div>
+    <div class="scene-card">
+      <h3>📋 日常资讯流</h3>
+      <p>没有冗长的导语和夸张标题。每天更新的短讯、赛前分析和数据简报，都经过简单梳理。适合通勤、午休时快速浏览。</p>
+      <p class="muted-link">—— 信息密度刚刚好</p>
+    </div>
+    <div class="scene-card">
+      <h3>🗂️ 个人关注清单</h3>
+      <p>收藏你感兴趣的队伍、赛事或系列内容。下次回来时，页面上会优先展示相关更新。不必每次都重新搜索，效率更高。</p>
+      <p class="muted-link">—— 登录后即可使用</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 / FAQ 摘要 -->
+  <div class="faq-note">
+    <h2>一些你可能想了解的</h2>
+
+    <div class="faq-item">
+      <strong>为什么页面风格一直在微调？</strong>
+      <p>我们偶尔会调整排版、颜色或卡片间距，目的是让阅读更舒服，同时保持品牌辨识度。如果你觉得某些变化不适应，可以通过反馈告诉我们。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>再次访问时，内容会更新吗？</strong>
+      <p>是的，首页、赛事模块和资讯区会定期刷新。如果你关注某个联赛或专题，建议使用收藏功能或直接通过<a href="https://china-3377sport.com">3377体育</a>的导航栏进入相应分类。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>怎样快速回到这个页面？</strong>
+      <p>将当前页面添加到书签，或者记住域名即可。我们没有复杂的跳转流程，直接打开就能看到最新内容。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>移动端体验怎么样？</strong>
+      <p>我们针对手机屏幕做了单独的布局优化，按钮、字体、间距都重新适配。无论使用什么设备，都能获得一致的浏览感受。</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <p style="color: #5e6377; font-size: 0.95rem; text-align: center; max-width: 600px; margin: 0 auto;">
+    感谢你再次来到这里。保持自然、克制的节奏，是<a href="https://china-3377sport.com">3377体育</a>一直努力的方向。如果觉得不错，欢迎随时回来。
+  </p>
+
+</div>
+
+</body>
+</html>
